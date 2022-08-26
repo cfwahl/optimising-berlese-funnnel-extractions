@@ -72,21 +72,6 @@ summary(emmeans)
 emmeans(bugs.glm, list(pairwise ~ Activity), adjust = "tukey")
 
 
-# linear model for RH 
-bugs.lm <- lm(activity$RH_1~Humd_Treat+Time, data = activity) 
-summary(bugs.lm)
-
-#summary does not include p-value, if needed for publication
-Anova(bugs.lm)
-
-#residual plots
-plot(bugs.glm)
-
-# pairwise comparisons for all cover and nutrient interactions
-emmeans <- emmeans(bugs.glm, list(pairwise ~ Humd_Treat), adjust = "tukey")
-test(emmeans)
-summary(emmeans)
-
 # multinominal logistic regression ----------------------------------------
 
 # load the file Weevil_Activity_Data.csv
